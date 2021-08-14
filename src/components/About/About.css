@@ -1,10 +1,10 @@
-.about-project {
+.about {
   max-width: 1140px;
   padding-top: 110px;
   margin: 0 auto;
 }
 
-.about-project__title {
+.about__title {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -16,14 +16,14 @@
   border-bottom: 1px solid #000;
 }
 
-.about-project__content {
+.about__content {
   display: inline-flex;
   width: 50%;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-.about-project__text-header {
+.about__text-header {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -32,7 +32,7 @@
   letter-spacing: -0.04em;
 }
 
-.about-project__text {
+.about__text {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -41,7 +41,7 @@
   padding-bottom: 110px;
 }
 
-.about-project__timeline {
+.about__timeline {
   display: grid;
   grid-template-columns: 1fr 4fr;
 
@@ -53,19 +53,19 @@
   text-align: center;
 }
 
-.about-project__timeline-fist-week {
+.about__timeline-fist-week {
   background-color: #2BE080;
   padding-top: 9px;
   padding-bottom: 9px;
 }
 
-.about-project__timeline-last-weeks {
+.about__timeline-last-weeks {
   background-color: #F2F2F2;
   padding-top: 9px;
   padding-bottom: 9px;
 }
 
-.about-project__timeline-week-name {
+.about__timeline-week-name {
   color: #A0A0A0;
   padding-top: 14px;
   padding-bottom: 110px;

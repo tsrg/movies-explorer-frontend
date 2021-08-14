@@ -11,8 +11,8 @@ function Header(props) {
     } else if (props.link === "login") {
       return (
         <>
-          <Link className="header__link"  to="/sign-in">Регитрация</Link>
-          <Link className="header__link"  to="/sign-in">Войти</Link>
+          <Link className="header__link header__link_type_signup"  to="/sign-up">Регитрация</Link>
+          <Link className="header__link header__link_type_signin"  to="/sign-in">Войти</Link>
         </>
       )
     } else if (props.link === "logout") {
@@ -27,9 +27,11 @@ function Header(props) {
 
   return (
     <header className="header">
+      <div className="header__container">
       <img className="header__logo" src={logo} alt="Логотип Место" />
       <div className="header__link-container">
         {content()}
+      </div>
       </div>
     </header>
   )

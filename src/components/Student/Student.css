@@ -1,10 +1,10 @@
-.about-me {
+.student {
   max-width: 1140px;
   padding-top: 110px;
   margin: 0 auto;
 }
 
-.about-me__title {
+.student__title {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -17,26 +17,26 @@
   margin: 0;
 }
 
-.about-me__info-container {
+.student__info-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   padding-top: 66px;
 }
 
-.about-me__info {
+.student__info {
   display: flex;
   flex-direction: column;
   max-width: 600px;
 }
 
-.about-me__photo {
+.student__photo {
   border-radius: 10px;
   max-width: 270px;
   max-height: 327px;
 }
 
-.about-me__name {
+.student__name {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -47,7 +47,7 @@
   padding: 0;
 }
 
-.about-me__main-info {
+.student__main-info {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -57,7 +57,7 @@
   padding-top: 18px;
 }
 
-.about-me__about {
+.student__about {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -67,7 +67,7 @@
   padding-top: 26px;
 }
 
-.about-me__social-links {
+.student__social-links {
   display: flex;
   margin: 0;
   padding-top: 99px;
@@ -76,7 +76,7 @@
   padding-left: 0;
 }
 
-.about-me__social-link {
+.student__social-link {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -85,7 +85,7 @@
   padding-right: 20px;
 }
 
-.about-me__portfolio-header {
+.student__portfolio-header {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -96,7 +96,7 @@
   padding-top: 100px;
 }
 
-.about-me__portfolio-list {
+.student__portfolio-list {
   list-style: none;
   margin: 0;
   padding-top: 50px;
@@ -104,7 +104,7 @@
   padding-bottom: 125px;
 }
 
-.about-me__portfolio-item {
+.student__portfolio-item {
   border-bottom: solid 1px #E5E5E5;
   display: flex;
   justify-content: space-between;
@@ -113,7 +113,7 @@
 
 }
 
-.about-me__portfolio-text {
+.student__portfolio-text {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -122,7 +122,7 @@
   letter-spacing: -0.04em;
 }
 
-.about-me__portfolio-icon {
+.student__portfolio-icon {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;

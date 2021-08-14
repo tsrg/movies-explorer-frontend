@@ -1,15 +1,15 @@
-.techs {
+.tech {
   width: 100%;
   padding-top: 110px;
   background-color: #F5F5F5;
 }
 
-.techs__container {
+.tech__container {
   width: 1140px;
   margin: 0 auto;
 }
 
-.techs__title {
+.tech__title {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -21,7 +21,7 @@
   border-bottom: 1px solid #000;
 }
 
-.techs__header {
+.tech__header {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -32,7 +32,7 @@
   padding-top: 90px;
 }
 
-.techs__text {
+.tech__text {
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -45,14 +45,14 @@
   margin: 0 auto;
 }
 
-.techs__list {
+.tech__list {
   display: flex;
   list-style: none;
   justify-content: center;
   gap: 10px;
 }
 
-.techs__list-item {
+.tech__list-item {
   background-color: #E8E8E8;
   border-radius: 10px;
   width: 90px;

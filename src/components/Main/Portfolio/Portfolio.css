@@ -1,0 +1,44 @@
+.portfolio__header {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  color: #A0A0A0;
+  margin: 0;
+  padding-top: 100px;
+}
+
+.portfolio__list {
+  list-style: none;
+  margin: 0;
+  padding-top: 50px;
+  padding-left: 0;
+  padding-bottom: 125px;
+}
+
+.portfolio__item {
+  border-bottom: solid 1px #E5E5E5;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-top: 20px;
+
+}
+
+.portfolio__text {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+}
+
+.portfolio__icon {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 60px;
+}
