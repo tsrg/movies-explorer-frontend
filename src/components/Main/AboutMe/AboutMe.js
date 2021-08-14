@@ -17,21 +17,6 @@ function AboutMe() {
           </ul>
         </div>
       </div>
-      <h3 className="about-me__portfolio-header">Портфолио</h3>
-      <ul className="about-me__portfolio-list">
-        <li className="about-me__portfolio-item">
-          <span className="about-me__portfolio-text">Статичный сайт</span>
-          <span className="about-me__portfolio-icon">&#8599;</span>
-        </li>
-        <li className="about-me__portfolio-item">
-          <span className="about-me__portfolio-text">Адаптивный сайт</span>
-          <span className="about-me__portfolio-icon">&#8599;</span>
-        </li>
-        <li className="about-me__portfolio-item">
-          <span className="about-me__portfolio-text">Одностраничное приложение</span>
-          <span className="about-me__portfolio-icon">&#8599;</span>
-        </li>
-      </ul>
     </section>
   )
 }
