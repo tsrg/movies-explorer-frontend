@@ -1,37 +1,39 @@
 import logo from '../../images/logo.svg';
+import logoSignedIn from '../../images/logoSignedIn.svg';
+import accountIcon from '../../images/account-button-icon.svg';
 import { Link } from 'react-router-dom';
 
 function Header(props) {
 
   const content = () => {
-    if (props.link === "register") {
-      return (
-        <Link className="header__link"  to="/sign-up">Зарегистрироваться</Link>
-      )
-    } else if (props.link === "login") {
+    if (props.type === "signedIn") {
       return (
         <>
-          <Link className="header__link header__link_type_signup"  to="/sign-up">Регитрация</Link>
-          <Link className="header__link header__link_type_signin"  to="/sign-in">Войти</Link>
+          <Link to="/"><img className="header__logo" src={logoSignedIn} alt="Логотип" /></Link>
+          <div className="header__link-container">
+            <Link className="header__link header__link_type_movies"  to="/movies">Фильмы</Link>
+            <Link className="header__link header__link_type_movies"  to="/saved-movies">Сохранённые фильмы</Link>
+            <Link className="header__link header__link_type_account"  to="/profile">Аккаунт<img className="header__account-icon" src={accountIcon} alt="Иконка аккаунта"></img></Link>
+          </div>
         </>
       )
-    } else if (props.link === "logout") {
+    } else if (props.type === "login") {
       return (
         <>
-          <span className="header__user-email">{props.userData}</span>
-          <span className="header__link" onClick={props.onSignOut}>Выйти</span>
+          <img className="header__logo" src={logo} alt="Логотип" />
+          <div className="header__link-container">
+            <Link className="header__link header__link_type_signup"  to="/sign-up">Регитрация</Link>
+            <Link className="header__link header__link_type_signin"  to="/sign-in">Войти</Link>
+          </div>
         </>
       )
     }
   }
 
   return (
-    <header className="header">
+    <header className={"header header_type_" + props.color}>
       <div className="header__container">
-      <img className="header__logo" src={logo} alt="Логотип Место" />
-      <div className="header__link-container">
-        {content()}
-      </div>
+          {content()}
       </div>
     </header>
   )

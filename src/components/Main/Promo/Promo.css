@@ -1,6 +1,5 @@
 .promo {
   background-color: #073042;
-  min-height: 524px;
 }
 
 .promo__container {
@@ -8,7 +7,7 @@
   min-height: 524px;
   margin: 0 auto;
   display: flex;
-  background-image: url('../../images/pi.svg');
+  background-image: url('../../../images/pi.svg');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -24,25 +23,22 @@
   text-align: center;
   letter-spacing: -0.04em;
   margin: auto;
+  padding: 10px;
 }
 
-.promo__menu {
-  background-color: black;
-  width: 100%;
-  min-height: 66px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media all and (max-width:900px) {
+  .promo__container {
+    min-height: 772px;
+  }
 }
 
-.promo__menu-item {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 16px;
-  text-decoration: underline;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+@media all and (max-width:616px) {
+  .promo__title {
+    font-size: 31px;
+    line-height: 39px;
+  }
+
+  .promo__container {
+    min-height: 540px;
+  }
 }

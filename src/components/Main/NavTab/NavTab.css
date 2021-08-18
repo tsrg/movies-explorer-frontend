@@ -17,4 +17,22 @@
   color: #fff;
   padding: 20px;
   text-align: center;
+  transition: 0.5s ease-out;
+}
+
+.nav-tab__item:hover {
+  opacity: 0.7;
+  transform: scale(1.1,1.1);
+}
+
+.nav-tab__item:active {
+  transform: scale(0.9,0.9);
+}
+
+
+@media all and (max-width:616px) {
+  .nav-tab__item {
+    font-size: 11px;
+    line-height: 16px;
+  }
 }

@@ -1,10 +1,14 @@
-.header {
+.header_type_dark {
   background-color: #073042;
 }
 
+.header_type_light {
+  background-color: #fff;
+}
+
 .header__container {
-  max-width: 1210px;
-  padding: 18px 30px;
+  max-width: 1280px;
+  padding: 15.4px 70px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -16,13 +20,29 @@
   height: 38px;
 }
 
+.header__link-container {
+  display: flex;
+}
+
 .header__link {
   text-decoration: none;
   font-family: Inter;
   font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  transition: 0.5s ease-out;
+}
+
+.header__link:hover {
+  opacity: 0.7;
+  transform: scale(1.1,1.1);
+}
+
+.header__link:active {
+  transform: scale(0.9,0.9);
 }
 
 .header__link_type_signup {
@@ -35,4 +55,52 @@
   background-color: #2BE080;
   border-radius: 3px;
   padding: 8px 20px;
+}
+
+.header__link_type_movies {
+  color: #000;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.header__link:active {
+  font-weight: 500;
+}
+
+.header__link_type_account {
+  padding-left: 50px;
+  font-weight: 500;
+  color: #000
+}
+
+.header__account-icon {
+  padding: 8px 7.25px;
+  margin-left: 17px;
+  background-color: #F5F5F5;
+  border-radius: 3px;
+}
+
+@media all and (max-width:900px) {
+  .header__container {
+    padding: 15.4px 30px;
+  }
+}
+
+@media all and (max-width:616px) {
+  .header__container {
+    padding: 18px 14px;
+  }
+
+  .header__link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__link_type_signup {
+    padding-right: 14px;
+  }
+
+  .header__link_type_signin {
+    padding: 5px 12px;
+  }
 }

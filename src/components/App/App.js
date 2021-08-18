@@ -1,36 +1,54 @@
 
 import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import Main from '../Main/Main';
+import Profile from '../Profile/Profile';
 import Header from '../Header/Header';
-import Hero from '../Hero/Hero';
-import About from '../About/About';
-import Tech from '../Tech/Tech';
-import Student from '../Student/Student';
 import Footer from '../Footer/Footer';
-
+import Register from '../Register/Register';
+import Login from '../Login/Login';
+import Movies from '../Movies/Movies';
+import NotFound from '../NotFound/NotFound';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
-  return (
-    <Switch>
-      <Route path="/landing">
-        <>
-          <Header link={"login"}/>
-          <Hero />
-          <About />
-          <Tech />
-          <Student />
-        </>
-      </Route>
-      <Route path="/sign-up">
-        <>
-          <Header link={"login"}/>
-        </>
-      </Route>
-      <Route path="/sign-in">
-        <Header link={"login"}/>
-      </Route>
-    </Switch>
+  const [currentUser, setCurrentUser] = useState({});
 
+  return (
+    <CurrentUserContext.Provider value={currentUser}>
+      <Switch>
+        <Route exact path="/">
+          <>
+            <Header type={"login"} color={"dark"}/>
+            <Main />
+            <Footer />
+          </>
+        </Route>
+        <Route path="/sign-up">
+          <Register />
+        </Route>
+        <Route path="/sign-in">
+          <Login />
+        </Route>
+        <Route path="/movies">
+          <>
+            <Header type={"signedIn"} color={"light"}/>
+            <Movies />
+            <Footer />
+          </>
+        </Route>
+        <Route path="/profile">
+          <>
+            <Header type={"signedIn"} color={"light"}/>
+            <Movies />
+            <Profile />
+          </>
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
+    </CurrentUserContext.Provider>
   );
 }
 

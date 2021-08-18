@@ -1,13 +1,19 @@
+import { Link } from 'react-router-dom';
+
 function Footer() {
   return (
     <section className="footer">
       <p className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</p>
+      <div className="footer__underline">
       <p className="footer__copyright">© 2020</p>
       <ul className="footer__links">
-        <li className="footer__link"><link href="#">Яндекс.Практикум</link></li>
-        <li className="footer__link"><link href="#">Github</link></li>
-        <li className="footer__link"><link href="#">Facebook</link></li>
+        <a className="footer__link" href="https://praktiku.yandex.ru"><li>Яндекс.Практикум</li></a>
+        <a className="footer__link" href="https://github.com/"><li>Github</li></a>
+        <a className="footer__link" href="https://www.facebook.com/"><li>Facebook</li></a>
       </ul>
+      </div>
     </section>
   )
 }
+
+export default Footer;
