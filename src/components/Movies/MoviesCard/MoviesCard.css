@@ -4,7 +4,7 @@
 
 .card__pic-wrapper {
   width: 100%;
-  height: calc(100%/9*4);
+  height: calc(100%/9*5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,4 +62,37 @@
   color: #A0A0A0;
   padding-top: 6px;
   border-top: solid 1px #E8E8E8;
+}
+
+@media all and (max-width:900px) {
+  .card {
+    width: calc((100vw - 107px)/2);
+  }
+
+  .card__pic-wrapper {
+    height: calc((100vw - 107px)/4);
+  }
+}
+
+@media (max-width: 580px) {
+  .card {
+    width: calc(100vw - 38px);
+  }
+  .card__pic-wrapper {
+    height: calc(calc(100vw - 38px)/2);
+  }
+
+  .card__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .card__title-container {
+    padding-top: 15px;
+    padding-bottom: 29px;
+  }
+
+  .card__duration {
+    margin: 0;
+  }
 }

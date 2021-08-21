@@ -40,7 +40,6 @@ function App() {
         <Route path="/profile">
           <>
             <Header type={"signedIn"} color={"light"}/>
-            <Movies />
             <Profile />
           </>
         </Route>

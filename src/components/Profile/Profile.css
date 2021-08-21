@@ -81,3 +81,10 @@
   border: none;
   text-decoration: none;
 }
+
+@media (max-width: 430px) {
+  .profile__info {
+    min-width: 260px;
+    width: calc(100% - 60px);
+  }
+}
