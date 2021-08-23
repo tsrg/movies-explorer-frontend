@@ -1,3 +1,4 @@
+import './AboutMe.css';
 import photo from '../../../images/photo.png'
 
 function AboutMe() {

@@ -1,3 +1,5 @@
+import './More.css';
+
 function More () {
   return (
     <section className="load-more">

@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   max-width: 396px;
+  min-width: 320px;
   margin: 0 auto;
 }
+
 .login__logo {
   padding-top: 70px;
   transition: 0.5s ease-out;

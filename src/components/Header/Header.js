@@ -1,29 +1,53 @@
+import './Header.css';
 import logo from '../../images/logo.svg';
 import logoSignedIn from '../../images/logoSignedIn.svg';
 import accountIcon from '../../images/account-button-icon.svg';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 
 function Header(props) {
+
+  const [isBugerMenuOpen, setBurgerMenuOpen] = useState(false);
+
+  function openMenu() {
+    setBurgerMenuOpen(true);
+  }
+
+  function closeMenu() {
+    setBurgerMenuOpen(false);
+  }
 
   const content = () => {
     if (props.type === "signedIn") {
       return (
         <>
-          <Link to="/"><img className="header__logo" src={logoSignedIn} alt="Логотип" /></Link>
-          <div className="header__link-container">
-            <Link className="header__link header__link_type_movies"  to="/movies">Фильмы</Link>
-            <Link className="header__link header__link_type_movies"  to="/saved-movies">Сохранённые фильмы</Link>
-            <Link className="header__link header__link_type_account"  to="/profile">Аккаунт<img className="header__account-icon" src={accountIcon} alt="Иконка аккаунта"></img></Link>
+          <NavLink to="/"><img className="header__logo" src={logoSignedIn} alt="Логотип" /></NavLink>
+          <div className="header__menu">
+            <NavLink className="header__menu-item header__menu-item_type_movies" activeClassName="header__menu-item_type_active" to="/movies">Фильмы</NavLink>
+            <NavLink className="header__menu-item header__menu-item_type_movies" activeClassName="header__menu-item_type_active" to="/saved-movies">Сохранённые фильмы</NavLink>
+            <NavLink className="header__menu-item header__menu-item_type_account" activeClassName="header__menu-item_type_active" to="/profile">Аккаунт<img className="header__account-icon" src={accountIcon} alt="Иконка аккаунта"></img></NavLink>
           </div>
+          <button className="header__burger-button" onClick={openMenu} />
+          <section className={isBugerMenuOpen ? "burger-menu burger-menu_open" : "burger-menu"}>
+            <button className="burger-menu__close-button" onClick={closeMenu}></button>
+            <div className={isBugerMenuOpen ? "burger-menu__container burger-menu__container_open" : "burger-menu__container"}>
+              <div className="burger-menu__main">
+                <NavLink className="burger-menu__item burger-menu__item_type_movies" exact activeClassName="burger-menu-item_type_active" onClick={closeMenu} to="/">Главная</NavLink>
+                <NavLink className="burger-menu__item burger-menu__item_type_movies" activeClassName="burger-menu-item_type_active" onClick={closeMenu} to="/movies">Фильмы</NavLink>
+                <NavLink className="burger-menu__item burger-menu__item_type_movies" activeClassName="burger-menu-item_type_active" onClick={closeMenu} to="/saved-movies">Сохранённые фильмы</NavLink>
+              </div>
+              <NavLink className="burger-menu__item burger-menu__item_type_account" activeClassName="burger-menu-item_type_active" onClick={closeMenu} to="/profile">Аккаунт<img className="header__account-icon" src={accountIcon} alt="Иконка аккаунта"></img></NavLink>
+            </div>
+          </section>
         </>
       )
     } else if (props.type === "login") {
       return (
         <>
           <img className="header__logo" src={logo} alt="Логотип" />
-          <div className="header__link-container">
-            <Link className="header__link header__link_type_signup"  to="/sign-up">Регитрация</Link>
-            <Link className="header__link header__link_type_signin"  to="/sign-in">Войти</Link>
+          <div className="header__menu header__menu_type_buttons">
+            <NavLink className="header__menu-item header__menu-item_type_signup" to="/sign-up">Регитрация</NavLink>
+            <NavLink className="header__menu-item header__menu-item_type_signin" to="/sign-in">Войти</NavLink>
           </div>
         </>
       )

@@ -1,6 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
 import Header from '../Header/Header';
@@ -9,13 +8,10 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Movies from '../Movies/Movies';
 import NotFound from '../NotFound/NotFound';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
       <Switch>
         <Route exact path="/">
           <>
@@ -33,7 +29,14 @@ function App() {
         <Route path="/movies">
           <>
             <Header type={"signedIn"} color={"light"}/>
-            <Movies />
+            <Movies type={"all-movies"} />
+            <Footer />
+          </>
+        </Route>
+        <Route path="/saved-movies">
+          <>
+            <Header type={"signedIn"} color={"light"}/>
+            <Movies type={"saved-movies"} />
             <Footer />
           </>
         </Route>
@@ -47,7 +50,6 @@ function App() {
           <NotFound />
         </Route>
       </Switch>
-    </CurrentUserContext.Provider>
   );
 }
 

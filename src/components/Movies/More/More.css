@@ -1,7 +1,9 @@
 .load-more {
   max-width: 1280px;
+  min-width: 320px;
   padding: 0 70px;
   margin: 0 auto;
+  padding-top: 50px;
   padding-bottom: 80px;
 }
 
@@ -19,4 +21,14 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: 0.5s ease-out;
+}
+
+.load-more__button:hover {
+  opacity: 0.7;
+  transform: scale(1.04,1.04);
+}
+
+.load-more__button:active {
+  transform: scale(0.94,0.94);
 }

@@ -1,3 +1,4 @@
+import './SearchForm.css';
 import findIcon from '../../../images/findicon.svg';
 
 function SearchForm() {

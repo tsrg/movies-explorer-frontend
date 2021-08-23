@@ -1,5 +1,6 @@
 .portfolio {
   max-width: 1140px;
+  min-width: 320px;
   padding: 0 70px;
   margin: 0 auto;
 }

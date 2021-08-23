@@ -1,3 +1,4 @@
+import './Login.css';
 import logo from '../../images/logo-reg.svg';
 import { Link } from 'react-router-dom';
 

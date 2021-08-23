@@ -40,6 +40,16 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+  transition: 0.5s ease-out;
+}
+
+.card__like-btn:hover {
+  opacity: 0.7;
+  transform: scale(1.04,1.04);
+}
+
+.card__like-btn:active {
+  transform: scale(0.94,0.94);
 }
 
 .card__like-btn_active {
@@ -49,6 +59,11 @@
 
 .card__like-btn_inactive {
   background: url('../../../images/like-btm-inactive.svg') center no-repeat;
+  background-size: 100%;
+}
+
+.card__like-btn_type_remove {
+  background: url('../../../images/remove-btn.svg') center no-repeat;
   background-size: 100%;
 }
 
@@ -62,6 +77,7 @@
   color: #A0A0A0;
   padding-top: 6px;
   border-top: solid 1px #E8E8E8;
+  margin: 0;
 }
 
 @media all and (max-width:900px) {

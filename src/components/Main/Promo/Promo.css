@@ -4,6 +4,7 @@
 
 .promo__container {
   max-width: 1210px;
+  min-width: 320px;
   min-height: 524px;
   margin: 0 auto;
   display: flex;
