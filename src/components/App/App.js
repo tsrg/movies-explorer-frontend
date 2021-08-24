@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <>
-            <Header type={"login"} color={"dark"}/>
+            <Header type={"login"} color={"green"}/>
             <Main />
             <Footer />
           </>
@@ -28,21 +28,21 @@ function App() {
         </Route>
         <Route path="/movies">
           <>
-            <Header type={"signedIn"} color={"light"}/>
+            <Header type={"signedIn"} color={"black"}/>
             <Movies type={"all-movies"} />
             <Footer />
           </>
         </Route>
         <Route path="/saved-movies">
           <>
-            <Header type={"signedIn"} color={"light"}/>
+            <Header type={"signedIn"} color={"black"}/>
             <Movies type={"saved-movies"} />
             <Footer />
           </>
         </Route>
         <Route path="/profile">
           <>
-            <Header type={"signedIn"} color={"light"}/>
+            <Header type={"signedIn"} color={"black"}/>
             <Profile />
           </>
         </Route>

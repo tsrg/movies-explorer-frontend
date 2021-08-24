@@ -27,14 +27,16 @@ function MoviesCard(props) {
 
     return (
         <article id={props.id} className="card">
+            <div className="card__title-container">
+              <div className="card__text-container">
+                <h2 className="card__title">{props.name}</h2>
+                <p className="card__duration">{duration()}</p>
+              </div>
+              <button className={movieLikeButtonClassName + " " + props.cardLikeButtonClassName} type="button" onClick={handleLikeClick}></button>
+            </div>
             <div className="card__pic-wrapper">
                 <img className="card__picture" src={props.image} alt={props.name} />
             </div>
-            <div className="card__title-container">
-                <h2 className="card__title">{props.name}</h2>
-                <button className={movieLikeButtonClassName + " " + props.cardLikeButtonClassName} type="button" onClick={handleLikeClick}></button>
-            </div>
-            <p className="card__duration">{duration()}</p>
         </article>
         )
 }

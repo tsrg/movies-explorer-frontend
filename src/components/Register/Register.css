@@ -1,4 +1,10 @@
 .register {
+  width: 100%;
+  height: 100vh;
+  background-color: #202020;
+}
+
+.register__container {
   display: flex;
   flex-direction: column;
   max-width: 396px;
@@ -27,13 +33,14 @@
   font-size: 24px;
   line-height: 29px;
   margin: 0;
-  padding-top: 40px;
+  padding-top: 35px;
+  color: #fff;
 }
 
 .register__form {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .register__field {
@@ -44,7 +51,7 @@
   font-weight: normal;
   font-size: 10px;
   line-height: 12px;
-  color: #A0A0A0;
+  color: #8B8B8B;
   padding-top: 20px;
 }
 
@@ -55,19 +62,36 @@
   font-size: 13px;
   line-height: 16px;
   padding: 15px;
-  background: #F9F9F9;
-  border-radius: 8px;
-  border: 0;
-  margin-top: 10px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #424242;
+  color: #fff;
+  padding: 0;
+  padding-top: 6px;
+  padding-bottom: 7px;
   transition: 0.5s ease-out;
 }
 
+.register__input_type_error {
+  color: #EE3465;
+}
+
 .register__input:focus {
-  box-shadow: 1px 1px 5px #0000006e;
+  border-bottom: 1px solid #4285F4;
+}
+
+.register__input-warning {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  padding-top: 7px;
 }
 
 .register__accept-button {
-  background-color: #3456F3;
+  background-color: #4285F4;
   padding: 13px;
   width: 100%;
   border: 0;
@@ -79,7 +103,7 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  margin-top: 69px;
+  margin-top: 134px;
   transition: 0.5s ease-out;
   cursor: pointer;
 }

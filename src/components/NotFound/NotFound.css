@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background: #202020;
 }
 
 .not-found__404 {
@@ -13,6 +14,7 @@
   font-size: 140px;
   line-height: 169px;
   text-align: center;
+  color: #fff;
   margin: 0;
   padding-bottom: 5px;
 }
@@ -24,6 +26,7 @@
   font-size: 16px;
   line-height: 19px;
   text-align: center;
+  color: #fff;
   margin: 0;
   padding-bottom: 164px;
 }
@@ -35,8 +38,8 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #3456F3;
-  background-color: white;
+  color: #4285F4;
+  background: none;
   border: none;
   margin: 0;
   cursor: pointer;

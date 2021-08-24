@@ -1,8 +1,12 @@
 .about-me {
-  max-width: 1280px;
-  min-width: 320px;
+  background-color: #202020;
+}
+
+.about-me__container {
+  max-width: 1140px;
+  min-width: 290px;
   padding: 0 70px;
-  padding-top: 110px;
+  padding-top: 118px;
   margin: 0 auto;
 }
 
@@ -13,9 +17,10 @@
   font-size: 22px;
   line-height: 27px;
   letter-spacing: -0.04em;
+  color: #fff;
   width: 100%;
   padding-bottom: 23px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #DADADA;
   margin: 0;
 }
 
@@ -23,7 +28,7 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  padding-top: 66px;
+  padding-top: 70px;
 }
 
 .about-me__info {
@@ -45,6 +50,7 @@
   font-size: 50px;
   line-height: 58px;
   letter-spacing: -0.04em;
+  color: #fff;
   margin: 0;
   padding: 0;
 }
@@ -55,8 +61,9 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 20px;
+  color: #fff;
   margin: 0;
-  padding-top: 18px;
+  padding-top: 24px;
 }
 
 .about-me__about {
@@ -65,6 +72,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 22px;
+  color: #fff;
   margin: 0;
   padding-top: 26px;
   padding-right: 24px;
@@ -73,7 +81,7 @@
 .about-me__social-links {
   display: flex;
   margin: 0;
-  padding-top: 99px;
+  padding-top: 113px;
   list-style: none;
   margin: 0;
   padding-left: 0;
@@ -87,12 +95,12 @@
   line-height: 17px;
   padding-right: 20px;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   transition: 0.5s ease-out;
 }
 
 .about-me__link {
-  color: #000;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -106,9 +114,9 @@
 }
 
 @media all and (max-width:900px) {
-  .about-me {
+  .about-me__container {
     padding: 0 50px;
-    padding-top: 90px;
+    padding-top: 95px;
   }
 
   .about-me__name {
@@ -134,7 +142,7 @@
   }
 
   .about-me__social-links {
-    padding-top: 83px;
+    padding-top: 90px;
   }
 }
 
@@ -142,9 +150,9 @@
 /* Inline таблица стилей #6 | http://localhost:3000/ */
 
 @media (max-width: 616px) {
-  .about-me {
+  .about-me__container {
     padding: 0 14px;
-    padding-top: 70px;
+    padding-top: 75px;
   }
   .about-me__photo {
     max-width: 540px;

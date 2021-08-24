@@ -1,8 +1,12 @@
 .about-project {
-  max-width: 1280px;
-  min-width: 320px;
+  background-color: #202020;
+}
+
+.about-project__container {
+  max-width: 1140px;
+  min-width: 280px;
   padding: 0 70px;
-  padding-top: 110px;
+  padding-top: 123px;
   margin: 0 auto;
 }
 
@@ -15,19 +19,16 @@
   letter-spacing: -0.04em;
   width: 100%;
   padding-bottom: 23px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #DADADA;
   margin: 0;
+  color: #fff;
 }
 
 .about-project__content {
   display: inline-flex;
-  width: 48%;
+  width: 50%;
   flex-wrap: wrap;
   flex-direction: column;
-}
-
-.about-project__content:first-of-type {
-  padding-right: 20px;
 }
 
 .about-project__text-header {
@@ -38,7 +39,9 @@
   line-height: 24px;
   letter-spacing: -0.04em;
   margin: 0;
-  padding-top: 66px;
+  padding-top: 75px;
+  color: #fff;
+  max-width: 90%;
 }
 
 .about-project__text {
@@ -47,7 +50,11 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
-  padding-bottom: 110px;
+  padding-bottom: 120px;
+  color: #fff;
+  margin: 0;
+  padding-top: 29px;
+  max-width: 450px;
 }
 
 .about-project__timeline {
@@ -70,18 +77,19 @@
 }
 
 .about-project__timeline-last-weeks {
-  background-color: #F2F2F2;
+  background-color: #303030;
+  color: #fff;
   padding-top: 9px;
   padding-bottom: 9px;
 }
 
 .about-project__timeline-week-name {
   color: #A0A0A0;
-  padding-top: 14px;
+  padding-top: 15px;
 }
 
 @media all and (max-width:900px) {
-  .about-project {
+  .about-project__container {
     padding: 0 50px;
     padding-top: 90px;
   }
@@ -96,7 +104,7 @@
 }
 
 @media all and (max-width:616px) {
-  .about-project {
+  .about-project__container {
     padding: 0 18px;
     padding-top: 70px;
   }
@@ -113,14 +121,11 @@
   .about-project__text-header {
     font-size: 18px;
     line-height: 22px;
-    padding-top: 55px;
-  }
-
-  .about-project__content:first-of-type {
-    padding-right: 0;
+    padding-top: 63px;
   }
 
   .about-project__text {
+    padding-top: 19px;
     padding-bottom: 0;
     font-size: 11px;
     line-height: 13px;
@@ -128,7 +133,7 @@
 
   .about-project__timeline {
     padding-bottom: 69px;
-    padding-top: 54px;
+    padding-top: 67px;
     font-size: 11px;
     line-height: 13px;
   }

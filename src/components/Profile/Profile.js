@@ -15,6 +15,7 @@ function Profile() {
           <span className="profile__info-line-content">tsg@tmedia.fm</span>
         </li>
       </ul>
+
       <div className="profile__buttons">
         <Link className="profile__edit-button" to="/eidt-profile">Редактировать</Link>
         <Link className="profile__logout-button" to="/logout">Выйти из аккаунта</Link>
