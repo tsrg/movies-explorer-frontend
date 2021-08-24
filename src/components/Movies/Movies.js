@@ -13,7 +13,7 @@ function Movies(props) {
     <>
       <SearchForm />
       <MoviesCardList movies={movies} cardLikeButtonClassName={cardLikeButtonClassName} />
-      <More />
+      {(props.type === "all-movies") && <More />}
     </>
   )
 }
