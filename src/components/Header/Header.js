@@ -1,6 +1,5 @@
 import './Header.css';
 import logo from '../../images/logo.svg';
-import logoSignedIn from '../../images/logoSignedIn.svg';
 import accountIcon from '../../images/account-button-icon.svg';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
@@ -21,7 +20,7 @@ function Header(props) {
     if (props.type === "signedIn") {
       return (
         <>
-          <NavLink to="/"><img className="header__logo" src={logoSignedIn} alt="Логотип" /></NavLink>
+          <NavLink to="/"><img className="header__logo" src={logo} alt="Логотип" /></NavLink>
           <div className="header__menu">
             <NavLink className="header__menu-item header__menu-item_type_movies" activeClassName="header__menu-item_type_active" to="/movies">Фильмы</NavLink>
             <NavLink className="header__menu-item header__menu-item_type_movies" activeClassName="header__menu-item_type_active" to="/saved-movies">Сохранённые фильмы</NavLink>
