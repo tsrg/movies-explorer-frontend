@@ -2,18 +2,23 @@ import './Movies.css';
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import More from './More/More';
-import { allmovies, savedmovies } from '../../constants/constants';
+import Search from '../../utils/Search';
+import React, { useEffect, useState } from 'react';
 
 function Movies(props) {
-
   const cardLikeButtonClassName = (props.type === "saved-movies" ? "card__like-btn_type_remove" : "card__like-btn_type_like");
-  const movies = (props.type === "saved-movies" ? savedmovies : allmovies);
+  const [movies, setMovies] = useState([]);
+  const [moreMoviesLeft, setmoreMoviesLeft] = useState(0);
+
+  function handleSearchSubmit() {
+    Search();
+  }
 
   return (
     <>
-      <SearchForm />
+      <SearchForm onSearchSubmit={handleSearchSubmit} />
       <MoviesCardList movies={movies} cardLikeButtonClassName={cardLikeButtonClassName} />
-      <More />
+      <More isActive={(moreMoviesLeft > 0)} />
     </>
   )
 }
