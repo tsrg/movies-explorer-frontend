@@ -40,7 +40,7 @@
   .load-more {
     padding: 0;
     padding-bottom: 130px;
-    padding-top: 75px;
+    padding-top: 0;
   }
 
   .load-more__button {

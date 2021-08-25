@@ -1,5 +1,6 @@
 .movies-card-list {
   background: #202020;
+  min-height: calc(100vh - 458px);
 }
 
 .movies-card-list__container {
@@ -15,6 +16,10 @@
 }
 
 @media all and (max-width:900px) {
+  .movies-card-list {
+    min-height: calc(100vh - 428px);
+  }
+
   .movies-card-list__container {
     padding: 0 30px;
     margin: 0 auto;
@@ -28,9 +33,14 @@
 }
 
 @media (max-width: 616px) {
+  .movies-card-list {
+    min-height: calc(100vh - 512px);
+  }
+
   .movies-card-list__container {
     padding: 0 10px;
     padding-top: 44px;
+    padding-bottom: 80px;
     gap: 10px;
   }
 }
