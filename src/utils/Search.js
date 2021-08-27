@@ -18,16 +18,20 @@ function checkLocal() {
   return ( exp > now );
 }
 
-function Search() {
-  const moviesLocal = JSON.parse(localStorage.getItem("movies"));
-
-  console.log(localStorage.getItem("_expiersin"));
-  console.log(checkLocal());
-
-
+function Search(req) {
   if (!checkLocal()) {
     saveToLocal();
   }
+
+  const moviesLocal = JSON.parse(localStorage.getItem("movies"));
+
+  console.log(req);
+  console.log(Object.values(moviesLocal[1]));
+
+  const searchResult = moviesLocal.filter(item => Object.values(item).toString().toLowerCase.includes(req.toLowerCase));
+        //                       arr.filter(obj => Object.keys(obj).some(key => obj[key].includes(searchKey)))
+
+  console.log(searchResult);
 
 
 }

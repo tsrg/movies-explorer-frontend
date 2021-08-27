@@ -10,8 +10,8 @@ function Movies(props) {
   const [movies, setMovies] = useState([]);
   const [moreMoviesLeft, setmoreMoviesLeft] = useState(0);
 
-  function handleSearchSubmit() {
-    Search();
+  function handleSearchSubmit(req) {
+    Search(req);
   }
 
   return (
