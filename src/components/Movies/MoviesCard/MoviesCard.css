@@ -24,6 +24,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__text-container {
@@ -38,6 +40,7 @@
   line-height: 18px;
   color: #fff;
   margin: 0;
+  text-overflow: ellipsis;
 }
 
 .card__duration {
