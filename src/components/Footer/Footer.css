@@ -1,5 +1,6 @@
 .footer {
   background-color: #202020;
+  min-width: 320px;
 }
 
 .footer__container {

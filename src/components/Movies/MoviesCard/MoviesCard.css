@@ -1,6 +1,7 @@
 .card {
   width: calc((100% - 48px)/3);
   background: #222222;
+  min-width: 300px;
 }
 
 .card__pic-wrapper {
@@ -12,6 +13,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  min-width: 300px;
 }
 
 .card__picture {
@@ -24,12 +26,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .card__text-container {
-
+  max-width: calc(100% - 35px);
 }
 
 .card__title {
@@ -41,6 +41,8 @@
   color: #fff;
   margin: 0;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .card__duration {
@@ -110,6 +112,8 @@
   }
   .card__pic-wrapper {
     height: calc(calc(100vw - 20px)*0.526);
+    max-width: 560px;
+    max-height: 300px;
   }
 
   .card__title {

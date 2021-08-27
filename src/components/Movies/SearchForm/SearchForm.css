@@ -1,5 +1,6 @@
 .search-form {
   background: #202020;
+  min-width: 320px;
 }
 
 .search-form__container {

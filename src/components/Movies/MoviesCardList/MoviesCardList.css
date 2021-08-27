@@ -1,6 +1,7 @@
 .movies-card-list {
   background: #202020;
   min-height: calc(100vh - 458px);
+  min-width: 320px;
 }
 
 .movies-card-list__container {
