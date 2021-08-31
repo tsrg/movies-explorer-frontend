@@ -1,29 +1,29 @@
 import './MoviesCard.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 function MoviesCard(props) {
 
-    let isLiked = false;
+  const [isLiked, setIsLiked] = useState(false);
 
-    const movieLikeButtonClassName = (
-        `card__like-btn ${isLiked ? 'card__like-btn_active' : 'card__like-btn_inactive'}`
-        );
 
-    function handleLikeClick() {
-        props.onCardLike(props.card);
-    }
+  const movieLikeButtonClassName = (
+    `card__like-btn ${isLiked ? 'card__like-btn_active' : 'card__like-btn_inactive'}`
+    );
 
-    function duration() {
-      if (props.duration < 60) {
+  function handleLikeClick() {
+    props.onCardLike(props.id, isLiked, setIsLiked);
+  }
+
+  function duration() {
+    if (props.duration < 60) {
+      return (
+        props.duration + ' м'
+      )} else {
         return (
-          props.duration + ' м'
-        )}
-        else {
-          return (
-            Math.floor(props.duration / 60) + ' ч ' + (props.duration % 60) + ' м'
-          )
-        }
+          Math.floor(props.duration / 60) + ' ч ' + (props.duration % 60) + ' м'
+        )
       }
+  }
 
     return (
         <article id={props.id} className="card">

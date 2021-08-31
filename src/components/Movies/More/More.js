@@ -1,9 +1,9 @@
 import './More.css';
 
-function More () {
+function More (props) {
   return (
     <section className="load-more">
-      <button className="load-more__button">Ещё</button>
+      <button className="load-more__button" onClick={props.onClick}>Ещё</button>
     </section>
   )
 }

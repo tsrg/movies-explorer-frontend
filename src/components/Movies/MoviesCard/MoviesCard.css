@@ -1,7 +1,7 @@
 .card {
   width: calc((100% - 48px)/3);
   background: #222222;
-  min-width: 300px;
+  overflow: hidden;
 }
 
 .card__pic-wrapper {
@@ -109,6 +109,7 @@
 @media (max-width: 580px) {
   .card {
     width: calc(100vw - 38px);
+    min-width: 300px;
   }
   .card__pic-wrapper {
     height: calc(calc(100vw - 20px)*0.526);
