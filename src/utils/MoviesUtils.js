@@ -26,7 +26,7 @@ async function checkLocal() {
   return ( exp > now );
 }
 
-function Search(req, isShort) {
+function search(req, isShort) {
 
   return new Promise((resolve, reject) => {
     checkLocal();
@@ -42,4 +42,4 @@ function Search(req, isShort) {
   });
 }
 
-export default Search;
+export { search, checkLocal, saveToLocal };

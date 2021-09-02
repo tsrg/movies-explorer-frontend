@@ -2,30 +2,69 @@ import './Movies.css';
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from './MoviesCardList/MoviesCardList';
 import More from './More/More';
-import Search from '../../utils/Search';
+import * as MoviesUtils from '../../utils/MoviesUtils';
 import React, { useEffect, useState } from 'react';
 import * as mainApi from '../../utils/MainApi';
+import Preloader from '../Preloader/Preloader';
 
 function Movies(props) {
   const cardLikeButtonClassName = (props.type === "saved-movies" ? "card__like-btn_type_remove" : "card__like-btn_type_like");
-  const [movies, setMovies] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [moreMoviesLeft, setmoreMoviesLeft] = useState(0);
   const [moviesToRender, setMoviesToRender] = useState([]);
-  const [nMoviesToShow, setNMoviesToShow] = useState(0);
+  //const [nMoviesToShow, setNMoviesToShow] = useState(0);
+
+
+  let nmovie;
+  let movies = [];
+  let nMoviesToShow = 0;
+  //let moviesToRender = [];
+  //const [content, setContent] = useState("Введите название фильма в строку поиска");
+
+  //const [content, setContent] = useState("Введите название фильма в строку поиска");
+  //const result = <MoviesCardList movies={moviesToRender} onMovieLike={handleMovieLike} cardLikeButtonClassName={cardLikeButtonClassName} />
+
 
   function checkWidth() {
     const n = windowWidth > 900 ? 12 :
               windowWidth > 580 ? 8 : 5;
-    setNMoviesToShow(n);
+    return n;
+  }
+
+  let n;
+
+  function setmts(n) {
+    nMoviesToShow = nMoviesToShow + n;
+    console.log("nMoviesToShow: " + nMoviesToShow);
   }
 
   function renderMovies(res) {
-    setMovies(res);
-    checkWidth();
+    return new Promise((resolve, reject) => {
+      setMoviesToRender(res.slice(0, nMoviesToShow));
+      console.log(res.slice(0, nMoviesToShow));
+
+      resolve(moviesToRender);
+      reject(new Error("pff"))
+    })
+  }
+
+  function showMore() {
+//console.log(numberOfMovies(nMoviesToShow));
+    nmovie = nmovie + 3;
+    console.log(nmovie);
+    //moviesToRender = (movies.slice(0, nMoviesToShow));
+    //setContent(<MoviesCardList movies={moviesToRender} onMovieLike={handleMovieLike} cardLikeButtonClassName={cardLikeButtonClassName} />);
+    const mts = movies.slice(0, nmovie)
+    //setMoviesToRender(mts);
+  }
+
+  function numberOfMovies(n) {
+    console.log("MORE" + n);
     console.log(nMoviesToShow);
-    setMoviesToRender(movies.slice(0, nMoviesToShow));
-    console.log("rendering-end");
+    windowWidth > 900 ? n = n + 3 :
+    windowWidth > 580 ? n = n + 2 : n = n + 1;
+
+    return n;
   }
 
   const savedMovies = () => {
@@ -39,11 +78,20 @@ function Movies(props) {
   }
 
   function handleSearchSubmit(req, isShort) {
-    Search(req, isShort)
-    .then((res) => renderMovies(res))
+    MoviesUtils.search(req, isShort)
+    .then((res) => {
+      movies = res;
+      nmovie = checkWidth();
+      console.log(nMoviesToShow);
+      setMoviesToRender(res.slice(0, nmovie));
+      //setContent(<MoviesCardList movies={moviesToRender} onMovieLike={handleMovieLike} cardLikeButtonClassName={cardLikeButtonClassName} />);
+    //  renderMovies(res)
+    })
     //.then(renderMovies())
     //setMovies(Search(req, isShort));
   }
+
+
 
   function handleWindowResize() {
 
@@ -59,17 +107,12 @@ function Movies(props) {
       }
     }
 
-  };
-
-  const showMore = () => {
-    console.log("MORE");
-    console.log(windowWidth);
-    windowWidth > 900 ? setNMoviesToShow(nMoviesToShow + 3) :
-    windowWidth > 580 ? setNMoviesToShow(nMoviesToShow + 2) : setNMoviesToShow(nMoviesToShow + 1);
-    setMoviesToRender(movies.slice(0, nMoviesToShow));
   }
 
-  function findMovieById(id) {
+
+
+  function findMovieById(movies, id) {
+    console.log(movies);
     return movies.find(item => item.id === id)
   }
 
@@ -77,7 +120,8 @@ function Movies(props) {
     if (isLiked) {
       console.log(id);
     } else {
-      const movie = findMovieById(id);
+      console.log(movies);
+      const movie = findMovieById(movies, id);
       mainApi.saveMovie(transformMovie(movie))
       .then(res => {setIsLiked(true)})
       .catch(err => console.error(err));
@@ -102,6 +146,8 @@ function Movies(props) {
 
   useEffect(() => {
     handleWindowResize();
+    //checkWidth();
+
   }, []);
 
   return (
