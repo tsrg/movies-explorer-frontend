@@ -28,7 +28,7 @@ export const login = (userData) => {
 }
 
 export const logout = () => {
-  return fetch(`${mainApiURL}/logout`, {
+  return fetch(`${mainApiURL}/signout`, {
       method: 'POST',
       credentials: "include"
   })

@@ -12,7 +12,7 @@ function MoviesCardList(props) {
       <div className="movies-card-list__container">
         { (props.movies.map(movie => {
             return <MoviesCard key={movie.id} id={movie.id} image={"https://api.nomoreparties.co" + movie.image.url}
-            name={movie.nameRU} saved={movie.isSaved} duration={movie.duration} onCardLike={handleCardLike} cardLikeButtonClassName={props.cardLikeButtonClassName} />
+            name={movie.nameRU} saved={movie.isSaved} duration={movie.duration} onCardLike={handleCardLike} cardLikeButtonClassName={props.cardLikeButtonClassName} trailer={movie.trailerLink}/>
           }))
         }
       </div>

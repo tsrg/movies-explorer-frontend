@@ -24,6 +24,10 @@
   transition: 0.5s ease-out;
   background: none;
   margin: 0 auto;
+  display: none;
+}
+
+.load-more__button_active {
   display: block;
 }
 

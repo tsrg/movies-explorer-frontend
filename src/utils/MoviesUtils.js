@@ -11,7 +11,12 @@ function saveToLocal() {
   });
 }
 
-async function checkLocal() {
+function checkLocalMovies() {
+  const localMovies = localStorage.getItem('movies');
+  return localMovies != null;
+}
+
+function checkLocal() {
   const now = Date.now();
   const exp = localStorage.getItem('_expiersin');
 
@@ -42,4 +47,16 @@ function search(req, isShort) {
   });
 }
 
-export { search, checkLocal, saveToLocal };
+function SearchInSaved(req, isShort, movies) {
+  return new Promise((resolve, reject) => {
+    if (isShort) {
+      movies = movies.filter(item => item.duration < 40);
+    }
+
+    const searchResult =  movies.filter(item => Object.values(item).toString().toLowerCase().includes(req.toLowerCase()));
+    resolve(searchResult);
+    reject(new Error('error'));
+  });
+}
+
+export { search, checkLocal, saveToLocal, checkLocalMovies, SearchInSaved };

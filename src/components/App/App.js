@@ -1,7 +1,6 @@
 
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-//import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
 import EditProfile from '../EditProfile/EditProfile';
@@ -10,36 +9,33 @@ import Footer from '../Footer/Footer';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../Movies/SavedMovies'
 import NotFound from '../NotFound/NotFound';
 import * as mainApi from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import Preloader from '../Preloader/Preloader';
+import ProtectedRoute from '../../utils/ProtectedRoute';
 
 function App() {
 
   const history = useHistory();
   const [loggedIn, setLoggedIn] = useState(null);
-  const [userData, setUserData] = useState('');
-  const [regSuccess, setRegSuccess] = useState(false);
-  const [regFail, setRegFail] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
   const getUserInfo = () => {
     return mainApi.getUserInfo()
     .then((res) => {
       setLoggedIn(true);
-      setUserData(res.email);
       setCurrentUser(res);
     })
   }
 
   function handleRegister(email, name, password) {
     mainApi.register({'email': email, 'name': name, 'password': password})
-      .then(() => {setRegSuccess(true)})
       .then(() => {
         history.push('/sign-in')
       })
-      .catch((err) => {console.log(err);
-        setRegFail(true);})
+      .catch((err) => {console.log(err);})
   }
 
   function handleLogin(email, password) {
@@ -59,10 +55,12 @@ function App() {
   }
 
   function hanldeSignOut() {
-    mainApi.logout();
-    setUserData('');
-    setLoggedIn(false);
-    history.push('/sign-in');
+    mainApi.logout()
+    .then(() => {
+      setLoggedIn(false);
+      history.push('/sign-in');
+    })
+
   }
 
   useEffect(() => {
@@ -71,6 +69,10 @@ function App() {
       setLoggedIn(false);
     })
   }, []);
+
+  if (loggedIn === null) {
+    return <Preloader />
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -88,21 +90,37 @@ function App() {
         <Route path="/sign-in">
           <Login onLogin={handleLogin} />
         </Route>
-        <Route path="/movies">
+        <ProtectedRoute
+          path="/movies"
+          component={Movies}
+          loggedIn={loggedIn}
+        />
+        <ProtectedRoute
+          path="/saved-movies"
+          component={SavedMovies}
+          loggedIn={loggedIn}
+        />
+        <ProtectedRoute
+          path="/profile"
+          component={Profile}
+          onLogOut={hanldeSignOut}
+          loggedIn={loggedIn}
+        />
+        <Route path="/movies1">
           <>
             <Header type={"signedIn"} color={"black"}/>
             <Movies type={"all-movies"} />
             <Footer />
           </>
         </Route>
-        <Route path="/saved-movies">
+        <Route path="/saved-movies1">
           <>
             <Header type={"signedIn"} color={"black"}/>
             <Movies type={"saved-movies"} />
             <Footer />
           </>
         </Route>
-        <Route path="/profile">
+        <Route path="/profile1">
           <>
             <Header type={"signedIn"} color={"black"}/>
             <Profile onLogOut={hanldeSignOut} />

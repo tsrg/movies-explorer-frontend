@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 
 function MoviesCard(props) {
 
-  const [isLiked, setIsLiked] = useState(false);
-
+  const [isLiked, setIsLiked] = useState(props.saved);
 
   const movieLikeButtonClassName = (
     `card__like-btn ${isLiked ? 'card__like-btn_active' : 'card__like-btn_inactive'}`
@@ -35,7 +34,7 @@ function MoviesCard(props) {
               <button className={movieLikeButtonClassName + " " + props.cardLikeButtonClassName} type="button" onClick={handleLikeClick}></button>
             </div>
             <div className="card__pic-wrapper">
-                <img className="card__picture" src={props.image} alt={props.name} />
+                <a href={props.trailer} ><img className="card__picture" src={props.image} alt={props.name} /></a>
             </div>
         </article>
         )
