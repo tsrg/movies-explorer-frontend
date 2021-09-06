@@ -43,7 +43,7 @@ function Register(props) {
           </label>
           <label className="register__field">Пароль
             <input className="register__input register__input_type_password" onChange={handlePasswordChange} type="password" required name="password" id="password" minLength="8" maxLength="40" />
-            <span className="register__input-warning register__input-warning_type_email">Что-то пошло не так...</span>
+            <span className="register__input-warning register__input-warning_type_email"></span>
           </label>
           <input type="submit" className="register__accept-button" value="Зарегистрироваться" />
         </form>
