@@ -11,6 +11,7 @@ import Login from '../Login/Login';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../Movies/SavedMovies'
 import NotFound from '../NotFound/NotFound';
+import Saved from '../Saved/Saved';
 import * as mainApi from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import Preloader from '../Preloader/Preloader';
@@ -21,6 +22,7 @@ function App() {
   const history = useHistory();
   const [loggedIn, setLoggedIn] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
+  const [profileSaved, setProfileSaved] = useState(false);
 
   const getUserInfo = () => {
     return mainApi.getUserInfo()
@@ -32,8 +34,9 @@ function App() {
 
   function handleRegister(email, name, password) {
     mainApi.register({'email': email, 'name': name, 'password': password})
+      .then(() => { getUserInfo() })
       .then(() => {
-        history.push('/sign-in')
+        history.push('/movies');
       })
       .catch((err) => {console.log(err);})
   }
@@ -47,11 +50,16 @@ function App() {
     .catch((err) => console.log(err))
   }
 
-  function handleEditProfile(email, password, name) {
-    const userData = password === null ? {'email': email, 'name': name} : {'email': email, 'name': name, 'password': password};
+  function handleEditProfile(email, name) {
+    const userData = {'email': email, 'name': name};
     mainApi.editUserInfo(userData)
       .then(() => {getUserInfo()})
-      .then(() => {history.push('/profile')})
+      .then(() => {setProfileSaved(true)})
+  }
+
+  function handleGood() {
+    setProfileSaved(false);
+    history.push('/profile');
   }
 
   function hanldeSignOut() {
@@ -60,7 +68,6 @@ function App() {
       setLoggedIn(false);
       history.push('/sign-in');
     })
-
   }
 
   useEffect(() => {
@@ -106,17 +113,14 @@ function App() {
           onLogOut={hanldeSignOut}
           loggedIn={loggedIn}
         />
-        <Route path="/movies1">
-          <>
-            <Header type={"signedIn"} color={"black"}/>
-            <Movies type={"all-movies"} />
-            <Footer />
-          </>
-        </Route>
         <Route path="/edit-profile">
           <>
             <Header type={"signedIn"} color={"black"}/>
-            <EditProfile onSave={handleEditProfile} />
+            {
+              !profileSaved ?
+              <EditProfile onSave={handleEditProfile} /> :
+              <Saved onSubmit={handleGood} />
+            }
           </>
         </Route>
         <Route path="*">

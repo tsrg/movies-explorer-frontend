@@ -8,7 +8,9 @@ function EditProfile(props) {
 
   const [email, setEmail] = useState(currentUser.email);
   const [name, setName] = useState(currentUser.name);
-  const [password, setPassword] = useState(null);
+
+  const buttonState = (email === currentUser.email && name === currentUser.name) ? ("disabled") : ("");
+  const buttonClass = (email === currentUser.email && name === currentUser.name) ? ("edit-profile__accept-button edit-profile__accept-button_inactive") : ("edit-profile__accept-button");
 
   function handleEmailChange(e) {
     setEmail(e.target.value);
@@ -18,13 +20,9 @@ function EditProfile(props) {
     setName(e.target.value);
   }
 
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
-    props.onSave(email, password, name);
+    props.onSave(email, name);
   }
 
 
@@ -38,14 +36,10 @@ function EditProfile(props) {
               <span className="edit-profile__input-warning edit-profile__input-warning_type_name"></span>
           </label>
           <label className="edit-profile__field">E-mail
-            <input autoComplete="off" value={email} className="edit-profile__input edit-profile__input_type_email" onChange={handleEmailChange} type="text" required name="email" placeholder="e-mail" id="email" minLength="2" maxLength="40" />
+            <input autoComplete="off" value={email} className="edit-profile__input edit-profile__input_type_email" onChange={handleEmailChange} type="email" required name="email" placeholder="e-mail" id="email" minLength="2" maxLength="40" />
             <span className="edit-profile__input-warning edit-profile__input-warning_type_email"></span>
           </label>
-          <label className="edit-profile__field">Пароль
-            <input autoComplete="new-password" className="edit-profile__input edit-profile__input_type_password" onChange={handlePasswordChange} type="password" name="password" id="password" minLength="8" maxLength="40" />
-            <span className="edit-profile__input-warning edit-profile__input-warning_type_email"></span>
-          </label>
-          <input type="submit" className="edit-profile__accept-button" value="Сохранить" />
+          <input type="submit" className={buttonClass} disabled={buttonState} value="Сохранить" />
         </form>
       </div>
     </section>

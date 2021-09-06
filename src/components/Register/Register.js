@@ -38,7 +38,7 @@ function Register(props) {
               <span className="register__input-warning register__input-warning_type_name"></span>
           </label>
           <label className="register__field">E-mail
-            <input className="register__input register__input_type_email" onChange={handleEmailChange} type="text" required name="email" placeholder="e-mail" id="email" minLength="2" maxLength="40" />
+            <input className="register__input register__input_type_email" onChange={handleEmailChange} type="email" required name="email" placeholder="e-mail" id="email" minLength="2" maxLength="40" />
             <span className="register__input-warning register__input-warning_type_email"></span>
           </label>
           <label className="register__field">Пароль
