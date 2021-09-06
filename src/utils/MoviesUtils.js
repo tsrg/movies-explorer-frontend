@@ -22,10 +22,6 @@ function checkLocal() {
 
   if (now > exp) {
     saveToLocal();
-    /*.then(() => { return })
-    .catch((err) => {
-      console.log(`Ошибка загрузки данных: ${err}`);
-    });*/
   }
 
   return ( exp > now );
