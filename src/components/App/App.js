@@ -1,5 +1,5 @@
 
-import { Route, Switch, useHistory } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Main from '../Main/Main';
 import Profile from '../Profile/Profile';
@@ -85,10 +85,10 @@ function App() {
           </>
         </Route>
         <Route path="/sign-up">
-          <Register onRegister={handleRegister}/>
+          {loggedIn ? <Redirect to="/movies" /> : <Register onRegister={handleRegister}/>}
         </Route>
         <Route path="/sign-in">
-          <Login onLogin={handleLogin} />
+          {loggedIn ? <Redirect to="/movies" /> : <Login onLogin={handleLogin} />}
         </Route>
         <ProtectedRoute
           path="/movies"
@@ -111,19 +111,6 @@ function App() {
             <Header type={"signedIn"} color={"black"}/>
             <Movies type={"all-movies"} />
             <Footer />
-          </>
-        </Route>
-        <Route path="/saved-movies1">
-          <>
-            <Header type={"signedIn"} color={"black"}/>
-            <Movies type={"saved-movies"} />
-            <Footer />
-          </>
-        </Route>
-        <Route path="/profile1">
-          <>
-            <Header type={"signedIn"} color={"black"}/>
-            <Profile onLogOut={hanldeSignOut} />
           </>
         </Route>
         <Route path="/edit-profile">

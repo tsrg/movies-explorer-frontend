@@ -21,11 +21,11 @@ function checkLocal() {
   const exp = localStorage.getItem('_expiersin');
 
   if (now > exp) {
-    saveToLocal()
-    .then(() => { return })
+    saveToLocal();
+    /*.then(() => { return })
     .catch((err) => {
       console.log(`Ошибка загрузки данных: ${err}`);
-    });
+    });*/
   }
 
   return ( exp > now );
