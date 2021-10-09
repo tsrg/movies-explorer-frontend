@@ -16,21 +16,13 @@ function Movies(props) {
   const [moviesToRender, setMoviesToRender] = useState([]);
 
   function renderMovies(movies) {
-    MainApi.getMovies()
-    .then((res) => {
-      movies = res;
-      movies.forEach((movie) => {
-        movie.id = movie._id
-        movie.image = {url: movie.image};
-        movie.trailerLink = movie.trailer;
-      })
       if (movies.length > 0) {
         content = "moviesList";
         setMoviesToRender(movies);
       } else {
         content = "nothing";
         setMoviesToRender([]);
-      }})
+      }
   }
 
   function getMovies() {
@@ -66,7 +58,8 @@ function Movies(props) {
       MainApi.deleteMovie(movie._id)
       .then((res) => {
         setIsLiked(false);
-        getMovies();
+        movies = movies.filter(item => item.id !== movie._id);
+        renderMovies(movies);
       })
       .catch((err) => {console.log(err);})
     }

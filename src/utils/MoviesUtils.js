@@ -1,15 +1,15 @@
 import { getMovies } from './MoviesApi';
 
 function saveToLocal() {
-  getMovies()
-    .then((movies) => {
-      localStorage.setItem('movies', JSON.stringify(movies));
-      localStorage.setItem('_expiersin', (Date.now() + 86400000));
-    })
-    .catch((err) => {
-      console.log(`Ошибка загрузки данных: ${err}`);
-  });
-}
+  return (
+    getMovies()
+      .then((movies) => {
+        localStorage.setItem('movies', JSON.stringify(movies));
+        localStorage.setItem('_expiersin', (Date.now() + 86400000));
+      })
+    )
+};
+
 
 function checkLocalMovies() {
   const localMovies = localStorage.getItem('movies');
@@ -21,7 +21,10 @@ function checkLocal() {
   const exp = localStorage.getItem('_expiersin');
 
   if (now > exp) {
-    saveToLocal();
+    saveToLocal()
+    .then(() => {return;})
+    .catch((err) => {
+      console.log(`Ошибка загрузки данных: ${err}`);});
   }
 
   return ( exp > now );

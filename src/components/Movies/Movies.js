@@ -65,14 +65,26 @@ function Movies(props) {
   }
 
   function handleSearchSubmit(req, isShort) {
-    content = "waiting";
-    MoviesUtils.search(req, isShort)
-    .then((res) => {
-      movies = res;
-      m = checkWidth();
-      checkSavedMovies(movies)
-    })
-
+    const startSearch = () => {
+      content = "waiting";
+      return (
+        MoviesUtils.search(req, isShort)
+        .then((res) => {
+          movies = res;
+          m = checkWidth();
+          checkSavedMovies(movies)
+        })
+      )
+    }
+    if (content === "start") {
+      content = "waiting";
+      MoviesUtils.saveToLocal()
+      .then(() => { startSearch() })
+      .catch((err) => {
+        console.log(`Ошибка загрузки данных: ${err}`);});
+    } else {
+      startSearch()
+    }
   }
 
   function handleWindowResize() {
@@ -105,6 +117,7 @@ function Movies(props) {
       .catch((err) => {console.log(err);})
     } else {
       const movie = findMovieById(movies, id);
+      console.log(movie);
       mainApi.saveMovie(transformMovie(movie))
       .then(res => {
         movie._id = res._id;
@@ -123,7 +136,7 @@ function Movies(props) {
     rightMovie.year = movie.year;
     rightMovie.description = movie.description;
     rightMovie.image = movie.image.url;
-    rightMovie.thumbnail = "https://api.nomoreparties.co" + movie.image.formats.thumbnail;
+    rightMovie.thumbnail = movie.image.formats.thumbnail.url;
     rightMovie.nameRU = movie.nameRU;
     rightMovie.nameEN = movie.nameEN;
     rightMovie.movieId = movie.id;
