@@ -12,6 +12,7 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../Movies/SavedMovies'
 import NotFound from '../NotFound/NotFound';
 import Saved from '../Saved/Saved';
+import Error from '../Error/Error';
 import * as mainApi from '../../utils/MainApi';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import Preloader from '../Preloader/Preloader';
@@ -23,6 +24,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
   const [profileSaved, setProfileSaved] = useState(false);
+  const [errorState, setErrorState] = useState('OK');
 
   const getUserInfo = () => {
     return mainApi.getUserInfo()
@@ -47,7 +49,10 @@ function App() {
     .then(() => {
       history.push('/movies');
     })
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      setErrorState(err);
+      console.log(err);
+    })
   }
 
   function handleEditProfile(email, name) {
@@ -96,6 +101,7 @@ function App() {
         </Route>
         <Route path="/sign-in">
           {loggedIn ? <Redirect to="/movies" /> : <Login onLogin={handleLogin} />}
+          {(errorState !== "OK") ? <Error state={errorState} /> : ''}
         </Route>
         <ProtectedRoute
           path="/movies"
